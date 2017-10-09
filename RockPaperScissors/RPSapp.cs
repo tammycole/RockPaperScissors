@@ -20,7 +20,19 @@ namespace RockPaperScissors
         {
             Console.WriteLine("Would you like to play against Rocky or Tim(r/t)?");
             string against = Console.ReadLine();
-            return against;
+            if(against == "t")
+            {
+                return "Tim";
+            }
+            else if (against == "r")
+            {
+                return "Rocky";
+            }
+            else
+            {
+                return against;
+            }
+           
         }
 
         public static string Choice()
@@ -32,57 +44,72 @@ namespace RockPaperScissors
 
         public static string Calculate(string against, Rocky r, Other o)
         {
-            if (against == "r")
+            if (against == "Rocky")
             {
                 string cr = r.GenerateRPS();
-                Console.WriteLine(cr);
+                Console.WriteLine(against + ": " + cr);
                 return cr;
             }
 
-            else
+            else if (against == "Tim")
             {
                 string cr = o.GenerateRPS();
-                Console.WriteLine(cr);
+                Console.WriteLine("Tim: " + cr);
                 return cr;
             }
+            else
+            {
+                //Check into this section -- not sure how to make it throw an exception
+                Console.WriteLine("Please choose r or t.");
+                string tryAgain = RPSapp.Opponent();
+                return tryAgain;
+
+                
+            }
+        }
+
+        public static void hcDisplay(string n, string hc)
+        {
+            Console.WriteLine(n + ": " + hc);
         }
 
         public static void Winner(string x, string y, string n, string ag)
         {
-            if ((x == "rock" && y == "rock") || (x == "paper" && y == "paper") || (x == "scissors" && y == "scissors"))
+            if (x == "rock" && y == "rock" || x == "paper" && y == "paper" || x == "scissors" && y == "scissors")
             {
                 Console.WriteLine("Draw!");
             }
 
             else if (x == "rock" && y == "paper")
             {
-                Console.WriteLine(ag + "wins!");
+                Console.WriteLine(n + " wins!");
             }
 
             else if (x == "rock" && y == "scissors")
             {
-                Console.WriteLine(n + " wins!");
+                Console.WriteLine(ag + " wins!");
             }
 
             else if (x == "paper" && y == "rock")
             {
-                Console.WriteLine(n + " wins!");
+                Console.WriteLine(ag + " wins!");
             }
 
             else if (x == "paper" && y == "scissors")
             {
-                Console.WriteLine(ag + " wins!");
+                Console.WriteLine(n + " wins!");
             }
 
             else if (x == "scissors" && y == "rock")
             {
-                Console.WriteLine(ag + " wins!");
+                Console.WriteLine(n + " wins!");
             }
 
             else if (x == "scissors" && y == "paper")
             {
-                Console.WriteLine(n + " wins!");
+                Console.WriteLine(ag + " wins!");
             }
+           
         }
 
         public static bool Continue()

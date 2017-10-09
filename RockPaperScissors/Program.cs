@@ -22,13 +22,13 @@ namespace RockPaperScissors
                 string name = human.GetName();
                 string against = RPSapp.Opponent();
                 string hc = human.GenerateRPS();
-                Console.WriteLine(name + ": " + hc);
+                RPSapp.hcDisplay(name, hc);
 
                 string computerResponse = RPSapp.Calculate(against, r, other);
 
                RPSapp.Winner(computerResponse, hc, name, against);
 
-                run = RPSapp.Continue();
+               run = RPSapp.Continue();
 
             }
         }

@@ -18,7 +18,8 @@ namespace RockPaperScissors
         {
           int rand =  GetRandom();
           var randomrps= rpsList.GetByIndex(rand);
-          return name+": "+randomrps;
+            //return name+": "+randomrps;
+            return randomrps;
         }
         public int GetRandom()
         {

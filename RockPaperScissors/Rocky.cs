@@ -16,7 +16,8 @@ namespace RockPaperScissors
         public override string GenerateRPS()
         {
             string ro = rpsList.GetByIndex(0);
-            return name + ": " + ro;
+            // return name + ": " + ro;
+            return ro;
         }
     }
 }
