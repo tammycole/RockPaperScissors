@@ -20,18 +20,25 @@ namespace RockPaperScissors
         {
             Console.WriteLine("Would you like to play against Rocky or Tim(r/t)?");
             string against = Console.ReadLine();
-            if(against == "t")
+
+            //try
+            //{
+                if (against == "t")
+                {
+                    return "Tim";
+                }
+                else if (against == "r")
+                {
+                    return "Rocky";
+                }
+           // }
+            
+            /*catch
             {
-                return "Tim";
-            }
-            else if (against == "r")
-            {
-                return "Rocky";
-            }
-            else
-            {
-                return against;
-            }
+                Opponent();
+            }*/
+
+            return against;
            
         }
 
@@ -63,8 +70,6 @@ namespace RockPaperScissors
                 Console.WriteLine("Please choose r or t.");
                 string tryAgain = RPSapp.Opponent();
                 return tryAgain;
-
-                
             }
         }
 
@@ -75,41 +80,67 @@ namespace RockPaperScissors
 
         public static void Winner(string x, string y, string n, string ag)
         {
+            //wanted to return total, wins, losses and ties, but not sure how to return 4 values
+            int all = 1;
+            int hw = 0;
+            int hl = 0;
+            int tie = 0;
+
             if (x == "rock" && y == "rock" || x == "paper" && y == "paper" || x == "scissors" && y == "scissors")
             {
                 Console.WriteLine("Draw!");
+                tie++;
+                all++;
             }
 
             else if (x == "rock" && y == "paper")
             {
                 Console.WriteLine(n + " wins!");
+                hw++;
+                all++;
             }
 
             else if (x == "rock" && y == "scissors")
             {
                 Console.WriteLine(ag + " wins!");
+                hl++;
+                all++;
             }
 
             else if (x == "paper" && y == "rock")
             {
                 Console.WriteLine(ag + " wins!");
+                hl++;
+                all++;
             }
 
             else if (x == "paper" && y == "scissors")
             {
                 Console.WriteLine(n + " wins!");
+                hw++;
+                all++;
             }
 
             else if (x == "scissors" && y == "rock")
             {
                 Console.WriteLine(n + " wins!");
+                hw++;
+                all++;
             }
 
             else if (x == "scissors" && y == "paper")
             {
                 Console.WriteLine(ag + " wins!");
+                hl++;
+                all++;
             }
            
+        }
+
+        //didn't figure out a way to make this work
+        public static void FinalCount(int a, int m, int r, int t)
+        {
+            Console.WriteLine("You played " + a + "games. You won " + m+ " times, Rocky won " + r+ " times, and Tim won " + t+ " times." );
         }
 
         public static bool Continue()

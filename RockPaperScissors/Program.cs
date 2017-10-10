@@ -22,6 +22,7 @@ namespace RockPaperScissors
                 string name = human.GetName();
                 string against = RPSapp.Opponent();
                 string hc = human.GenerateRPS();
+
                 RPSapp.hcDisplay(name, hc);
 
                 string computerResponse = RPSapp.Calculate(against, r, other);
